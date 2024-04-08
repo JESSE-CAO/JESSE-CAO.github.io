@@ -10,10 +10,16 @@ socket.onopen = function(event) {
 };
 
 socket.onmessage = function(event) {
-  const message = document.createElement('div');
-  message.classList.add('message');
-  message.textContent = event.data;
-  chat.appendChild(message);
+  // 创建一个新的消息元素
+  const messageElement = document.createElement('div');
+  messageElement.classList.add('message');
+  messageElement.textContent = event.data;
+
+  // 将消息元素添加到聊天窗口中
+  chat.appendChild(messageElement);
+
+  // 自动滚动到底部以显示最新消息
+  chat.scrollTop = chat.scrollHeight;
 };
 
 socket.onclose = function(event) {
