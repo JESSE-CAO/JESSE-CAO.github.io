@@ -2,8 +2,8 @@ const chat = document.getElementById('chat');
 const messageInput = document.getElementById('message');
 const sendButton = document.getElementById('send');
 
-// 创建WebSocket连接
-const socket = new WebSocket('wss://your-websocket-server-url');
+// 创建WebSocket连接到公共测试服务器
+const socket = new WebSocket('wss://echo.websocket.org');
 
 socket.onopen = function(event) {
   console.log('WebSocket连接已建立');
